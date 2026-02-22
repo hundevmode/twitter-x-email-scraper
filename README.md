@@ -1,71 +1,105 @@
-# twitter-x-email-scraper
-Extract verified emails from Twitter profiles — ultra-fast, no login or API keys required. Perfect for lead generation, B2B outreach, and marketing lists.  ⚡ Fast and reliable 📧 Verified business emails only 🧠 Works without login or auth 📈 Up to 1,000,000 results per run 💰 $2 per 1,000 results
+# Twitter (X.com) Email Scraper
 
-# 🐦 Twitter (X.com) Email Scraper
+Extract verified business emails from Twitter/X profiles at scale.
 
-Effortlessly extract enriched profile data from Twitter (X.com) by providing a list of usernames. No cookies, tokens, or authentication needed — simply paste the usernames and get structured results.
+## [Open the Actor on Apify](https://console.apify.com/actors/mSaHt2tt3Z7Fcwf0o/source)
 
-Afipy - [Link](https://console.apify.com/actors/mSaHt2tt3Z7Fcwf0o/input)
+This actor is designed for teams that need fast, reliable **Twitter email scraping** for lead generation, B2B outreach, and market research.
 
----
+## Why this Twitter email scraper
 
-## ✨ Features
+- No login flow in input
+- No user-side cookies required
+- No external API keys required from end users
+- Built for high-volume runs (up to 1,000,000 results per run)
+- Clean output for CRM and outreach workflows
 
-- ✅ **No Login Required**: Just provide Twitter handles — no need for API keys or session cookies.
-- ⚡ **Fast & Scalable**: Built to process hundreds of thousands of usernames quickly.
-- 🎯 **Targeted Output**: Limit your results by specifying how many user profiles to return.
-- 🧠 **Smart Handling**: Automatically skips empty lines or duplicates in your username input.
+## Pricing
 
----
+- **$2 per 1,000 results**
+- Plus Apify platform usage
 
-## 🛠️ How It Works
+## What you can extract
 
-1. 📝 **Paste Usernames**: Enter one Twitter handle per line.
-2. 🔢 **Set Limit (optional)**: Choose how many profiles to retrieve — from a few to a million.
-3. 🚀 **Run the Actor**: Scraper connects to a structured database, queries user records, and returns them in bulk.
+- Verified email (when available)
+- Name
+- Screen name / username
+- Followers count
+- Profile metadata used for enrichment workflows
 
----
+## Input schema
 
-## 🧾 Input Format
+| Field | Type | Required | Description | Example |
+|---|---|---|---|---|
+| `usernames` | `string` | Yes | Usernames separated by new lines | `elonmusk\nnaval` |
+| `max_results` | `number` | No | Maximum results to return | `10000` |
 
-| Field         | Type     | Required | Description                                                     |
-|---------------|----------|----------|-----------------------------------------------------------------|
-| `usernames`   | string   | ✅       | Twitter handles separated by new lines                          |
-| `max_results` | integer  | ❌       | Optional max number of results to return (min: 500, max: 1,000,000) |
+### Example input
 
-Example input (Manual mode):
+```json
+{
+  "usernames": "elonmusk\nnaval\nlexfridman",
+  "max_results": 10000
+}
+```
+
+## Output example
 
 ```json
 [
   {
-    "email": "elon@tesla.com",
-    "name": "Elon Musk",
-    "screenname": "elonmusk",
-    "followers": 182000000,
-    "created_at": "2009-06-02T20:12:29Z"
-  },
-  {
-    "email": "naval@angellist.com",
-    "name": "Naval",
-    "screenname": "naval",
-    "followers": 2000000,
-    "created_at": "2007-11-19T23:06:00Z"
+    "email": "example@company.com",
+    "name": "Example Name",
+    "screenname": "example",
+    "followers": 123456,
+    "created_at": "2011-01-01T00:00:00Z"
   }
 ]
 ```
 
-⚙️ Use Cases
-• 💼 Lead generation based on Twitter presence  
-• 🧠 Competitive analysis & influencer tracking  
-• 📣 Building outreach or email marketing lists
+## Best use cases
 
-⸻
+### 1. B2B lead generation
+Build targeted lead lists from niche Twitter/X audiences.
 
-📌 Notes  
-• Output is capped to the number set in `max_results`. If you input 200,000 usernames but set `max_results` to 50,000 — only the first 50,000 matches will be returned.  
-• Supports **newlines** as separators, **not commas**.  
-• `max_results` must be **at least 500** and no more than **1,000,000**.
+### 2. Sales prospecting
+Enrich username lists with email-ready contact data.
 
-⸻
+### 3. Influencer and creator research
+Find reachable profiles for partnerships and campaigns.
 
-Start collecting enriched Twitter profile data with just a few clicks — no coding required!
+### 4. Market intelligence
+Collect contactable profiles around vertical-specific accounts.
+
+## Notes
+
+- `max_results` controls output cap.
+- Usernames should be newline-separated.
+- If an email is not found for a profile, that profile may be skipped depending on actor logic.
+
+## Related actor (followers/following)
+
+Need usernames or user IDs at scale first?
+
+- [Twitter (X) Follower Scraper — $0.10 / 1K](https://console.apify.com/actors/bIYXeMcKISYGnHhBG/source)
+
+## FAQ
+
+### Is this an official Twitter API?
+No. This is an Apify actor for practical scraping workflows.
+
+### Do I need to configure cookies or tokens?
+No input-side cookie setup is required.
+
+### Can I run large jobs?
+Yes, up to 1,000,000 results per run (plan and data availability dependent).
+
+## SEO keywords
+
+twitter email scraper, x email scraper, twitter x.com email scraper, scrape emails from twitter profiles, twitter lead generation scraper, twitter b2b email finder, no login twitter scraper, twitter contact scraper, twitter outreach data
+
+---
+
+## Start now
+
+### [Run Twitter (X.com) Email Scraper on Apify](https://console.apify.com/actors/mSaHt2tt3Z7Fcwf0o/source)
